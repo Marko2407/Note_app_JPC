@@ -8,6 +8,7 @@ import com.mvukosav.noteapp.feature_note.data.repository.NoteRepositoryImpl
 import com.mvukosav.noteapp.feature_note.domain.repository.NoteRepository
 import com.mvukosav.noteapp.feature_note.domain.use_case.AddNote
 import com.mvukosav.noteapp.feature_note.domain.use_case.DeleteNote
+import com.mvukosav.noteapp.feature_note.domain.use_case.GetNote
 import com.mvukosav.noteapp.feature_note.domain.use_case.GetNotes
 import com.mvukosav.noteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
@@ -36,6 +37,7 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases = NoteUseCases(
         getNotes = GetNotes(repository),
         deleteNote = DeleteNote(repository),
-        addNote = AddNote(repository)
+        addNote = AddNote(repository),
+        getNote = GetNote(repository)
     )
 }
