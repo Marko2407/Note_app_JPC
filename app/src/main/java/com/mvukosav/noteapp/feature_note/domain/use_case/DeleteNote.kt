@@ -5,5 +5,5 @@ import com.mvukosav.noteapp.feature_note.domain.repository.NoteRepository
 
 class DeleteNote(private val noteRepository: NoteRepository) {
 
-    suspend fun invoke(note: Note) = noteRepository.deleteNote(note)
+    suspend operator fun invoke(note: Note) = noteRepository.deleteNote(note)
 }
